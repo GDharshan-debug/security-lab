@@ -1,0 +1,17 @@
+SQL Injection - Lab Notes
+
+
+1. What is SQL Injection?
+Attacker puts SQL code inside login/search box to trick database.
+
+2. Payload I used:
+' OR '1'='1
+
+3. What happened?
+Login bypassed without correct password. It showed all users data.
+
+4. Why it worked?
+Website directly joined my input into SQL query without checking.
+
+5. How to fix?
+Use Prepared Statements / Parameterized Queries. Never trust user input.

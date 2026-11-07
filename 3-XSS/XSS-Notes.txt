@@ -1,0 +1,17 @@
+XSS - Lab Notes
+
+
+1. What is XSS?
+Attacker puts JavaScript code inside a website input, and it runs in victim's browser.
+
+2. Payload I used:
+<script>alert('XSS')</script>
+
+3. What happened?
+A popup box appeared on the page. It proved the website ran my code.
+
+4. Why it worked?
+Website showed my input on the page without cleaning / encoding it.
+
+5. How to fix?
+Encode output, validate input, use Content-Security-Policy (CSP).

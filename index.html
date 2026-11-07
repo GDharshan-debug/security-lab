@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><title>Security Lab</title></head>
+<body>
+<h1>Welcome to Security Lab</h1>
+<h2>1. Login (SQL Injection Test)</h2>
+Username: <input id="user"><br><br>
+Password: <input id="pass" type="password"><br><br>
+<button onclick="login()">Login</button>
+<p id="loginMsg"></p>
+<h2>2. Search (XSS Test)</h2>
+<input id="search" placeholder="Search here">
+<button onclick="doSearch()">Search</button>
+<p id="result"></p>
+<script>
+function login(){
+  let u = document.getElementById("user").value;
+  let query = "SELECT * FROM users WHERE user='" + u + "'";
+  document.getElementById("loginMsg").innerHTML = "Query: " + query;
+  if(u === "' OR '1'='1") document.getElementById("loginMsg").innerHTML += "<br><b>SQLi SUCCESS - Logged in as Admin!</b>";
+  else document.getElementById("loginMsg").innerHTML += "<br>Login failed";
+}
+function doSearch(){
+  let s = document.getElementById("search").value;
+  document.getElementById("result").innerHTML = "You searched for: " + s;
+}
+</script>
+</body>
+</html>
